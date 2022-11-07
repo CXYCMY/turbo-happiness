@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(function (){
+       $("#btn1").click(function (){
+           $.ajax({
+               url:"/crm/123",
+               type:"GET",
+               async:true,
+               dataType:"json",
+               success:function (result){
+                  $("#div1").text(result.name)
+               }
+           })
+       })
+    })
+</script>
+<body>
+<h1>index首页</h1>
+<form method="get" action="/crm/123">
+    <input type="submit" value="提交">
+</form>
+<button id="btn1">ajax测试按钮</button>
+<div id="div1" style="width: 100px;height: 100px;background: red"></div>
+<a href="/crm/123">点击链接</a>
+</body>
+</html>

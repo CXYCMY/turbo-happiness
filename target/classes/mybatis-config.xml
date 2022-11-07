@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties">
+
+    </properties>
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+        <!--开启驼峰自动命名机制-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--延迟加载全局开关，特定关联关系可以通过fetchType进行设置-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+    <!--pojo包-->
+    <typeAliases>
+        <package name="com.cxy.crm.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--mapper包-->
+    <mappers>
+        <package name="com.cxy.crm.mapper"/>
+    </mappers>
+</configuration>
